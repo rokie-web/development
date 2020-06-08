@@ -5,4 +5,13 @@
     src="https://raw.githubusercontent.com/nrwl/nx/master/nx-logo.png"
   />
 </div>
-<div>Message: {{ hello$ | async | json }}</div>
+<div>
+  Message:
+  <ng-container *ngIf="hello$ | async; let hello">
+    {{ hello.message }}
+  </ng-container>
+</div>
+
+<ng-container>
+  <pre>{{ hello$ | async | json }}</pre>
+</ng-container>
