@@ -14,22 +14,11 @@
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e"
-        ]
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
       }
     }
   },
   "projects": {
-    "cv-e2e": {
-      "tags": [],
-      "implicitDependencies": [
-        "cv"
-      ]
-    },
     "api": {
       "tags": []
     },
