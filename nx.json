@@ -24,6 +24,13 @@
     },
     "api-interfaces": {
       "tags": []
+    },
+    "shop": {
+      "tags": []
+    },
+    "shop-e2e": {
+      "tags": [],
+      "implicitDependencies": ["shop"]
     }
   }
 }
