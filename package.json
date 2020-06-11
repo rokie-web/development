@@ -44,7 +44,11 @@
     "@nestjs/common": "^6.8.3",
     "@nestjs/core": "^6.8.3",
     "@nestjs/platform-express": "^6.8.3",
-    "reflect-metadata": "^0.1.13"
+    "reflect-metadata": "^0.1.13",
+    "@ngrx/store": "9.1.0",
+    "@ngrx/effects": "9.1.0",
+    "@ngrx/entity": "9.1.0",
+    "@ngrx/router-store": "9.1.0"
   },
   "devDependencies": {
     "@angular/cli": "9.1.0",
@@ -70,6 +74,8 @@
     "@nrwl/cypress": "9.3.0",
     "@nrwl/node": "9.3.0",
     "@nestjs/schematics": "^6.7.0",
-    "@nestjs/testing": "^6.8.3"
+    "@nestjs/testing": "^6.8.3",
+    "@ngrx/schematics": "9.1.0",
+    "@ngrx/store-devtools": "9.1.0"
   }
 }
