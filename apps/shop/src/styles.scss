@@ -49,3 +49,30 @@ h4 {
   font-weight: normal;
   font-style: normal;
 }
+
+.btn {
+  display: inline-block;
+  padding: 10px 15px;
+  margin: 0;
+  outline: 0;
+  border: 0;
+  border-radius: 3px;
+  font-size: 16px;
+  font-family: 'cornerstone';
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn__ok {
+  background: #0f9675;
+  color: #fff;
+}
+.btn__ok:hover {
+  background: #0a7d61;
+}
+.btn__warning {
+  background: #ab131c;
+  color: #fff;
+}
+.btn__warning:hover {
+  background: #880c14;
+}
