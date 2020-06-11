@@ -14,7 +14,8 @@ export const ROUTES: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'products' },
   {
     path: 'products',
-    loadChildren: '../products/products.module#ProductsModule',
+    loadChildren: () =>
+      import('../products/products.module').then((m) => m.ProductsModule),
   },
 ];
 
@@ -36,16 +37,6 @@ export const ROUTES: Routes = [
     EffectsModule.forRoot([]),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     StoreRouterConnectingModule.forRoot(),
-    StoreModule.forRoot(
-      {},
-      {
-        metaReducers: !environment.production ? [] : [],
-        runtimeChecks: {
-          strictActionImmutability: true,
-          strictStateImmutability: true,
-        },
-      }
-    ),
   ],
   providers: [],
   bootstrap: [AppComponent],
