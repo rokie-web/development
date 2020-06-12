@@ -14,16 +14,18 @@ export interface PizzaState {
 }
 
 export const INITIAL_STATE = {
-  data: [{
-    "name": "Plain Ol' Pepperoni",
-    "toppings": [
-      {
-        "id": 10,
-        "name": "pepperoni"
-      }
-    ],
-    "id": 3
-  }],
+  data: [
+    {
+      name: "Plain Ol' Pepperoni",
+      toppings: [
+        {
+          id: 10,
+          name: 'pepperoni',
+        },
+      ],
+      id: 3,
+    },
+  ],
   loaded: false,
   loading: false,
 };
