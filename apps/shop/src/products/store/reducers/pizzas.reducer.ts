@@ -6,6 +6,7 @@ import {
   LOAD_PIZZAS_FAIL,
 } from '../actions/pizzas.action';
 import { Pizza } from '../../models/pizza.model';
+import { Action } from 'rxjs/internal/scheduler/Action';
 
 export interface PizzaState {
   data: Pizza[];
@@ -14,18 +15,7 @@ export interface PizzaState {
 }
 
 export const INITIAL_STATE = {
-  data: [
-    {
-      name: "Plain Ol' Pepperoni",
-      toppings: [
-        {
-          id: 10,
-          name: 'pepperoni',
-        },
-      ],
-      id: 3,
-    },
-  ],
+  data: [],
   loaded: false,
   loading: false,
 };
@@ -36,10 +26,11 @@ const _pizzaReducer = createReducer(
     ...state,
     loading: true,
   })),
-  on(LOAD_PIZZAS_SUCCESS, (state) => ({
+  on(LOAD_PIZZAS_SUCCESS, (state, { pizza }) => ({
     ...state,
     loaded: true,
     loading: false,
+    data: pizza,
   })),
   on(LOAD_PIZZAS_FAIL, (state) => ({
     ...state,

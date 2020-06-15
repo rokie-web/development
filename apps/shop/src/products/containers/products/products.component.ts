@@ -31,5 +31,6 @@ export class ProductsComponent {
 
   constructor(private store: Store<fromStore.ProductState>) {
     this.pizzas$ = this.store.select(fromStore.selectPizzas);
+    this.store.dispatch(fromStore.LOAD_PIZZAS());
   }
 }

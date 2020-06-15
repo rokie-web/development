@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
 // components
 import * as fromComponents from './components';
@@ -16,7 +17,8 @@ import * as fromContainers from './containers';
 import * as fromServices from './services';
 
 // reducers
-import { reducers } from './store';
+import { REDUCERS, EFFECTS } from './store';
+import { FEATURES } from 'apps/shop/config';
 
 // routes
 export const ROUTES: Routes = [
@@ -40,7 +42,8 @@ export const ROUTES: Routes = [
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forChild(ROUTES),
-    StoreModule.forFeature('products', reducers),
+    StoreModule.forFeature(FEATURES.PRODUCTS, REDUCERS),
+    EffectsModule.forFeature(EFFECTS),
   ],
   providers: [...fromServices.services],
   declarations: [...fromContainers.containers, ...fromComponents.components],

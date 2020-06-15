@@ -5,16 +5,20 @@ import {
   createFeatureSelector,
 } from '@ngrx/store';
 
+import { FEATURES } from 'apps/shop/config';
+
 export interface ProductState {
   pizzas: PizzaState;
 }
 
-export const reducers: ActionReducerMap<ProductState> = {
+export const REDUCERS: ActionReducerMap<ProductState> = {
   pizzas: pizzaReducer,
 };
 
 // selectors
-export const selectFeature = createFeatureSelector<ProductState>('products');
+export const selectFeature = createFeatureSelector<ProductState>(
+  FEATURES.PRODUCTS
+);
 
 export const selectPizzaState = createSelector(
   selectFeature,
