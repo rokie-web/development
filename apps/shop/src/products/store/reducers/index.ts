@@ -35,7 +35,11 @@ export const selectLoaded = createSelector(
   (state: PizzaState) => state.loaded
 );
 
-export const selectPizzas = createSelector(
+export const selectPizzaEntities = createSelector(
   selectPizzaState,
-  (state: PizzaState) => state.data
+  (state: PizzaState) => state.entities
+);
+
+export const selectAllPizzas = createSelector(selectPizzaEntities, (entities) =>
+  Object.keys(entities).map((id) => entities[id])
 );

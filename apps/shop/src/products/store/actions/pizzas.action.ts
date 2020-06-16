@@ -12,5 +12,5 @@ export const LOAD_PIZZAS_FAIL = createAction(
 );
 export const LOAD_PIZZAS_SUCCESS = createAction(
   '[Products] Load Pizzas Success',
-  props<{ pizza: Pizza[] }>()
+  props<{ pizzas: Pizza[] }>()
 );

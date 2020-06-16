@@ -30,7 +30,7 @@ export class ProductsComponent {
   pizzas$: Observable<Pizza[]>;
 
   constructor(private store: Store<fromStore.ProductState>) {
-    this.pizzas$ = this.store.select(fromStore.selectPizzas);
+    this.pizzas$ = this.store.select(fromStore.selectAllPizzas);
     this.store.dispatch(fromStore.LOAD_PIZZAS());
   }
 }
