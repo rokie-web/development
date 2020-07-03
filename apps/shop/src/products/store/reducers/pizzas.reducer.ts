@@ -43,3 +43,23 @@ const _pizzaReducer = createReducer(
 export function pizzaReducer(state: PizzaState, action) {
   return _pizzaReducer(state, action);
 }
+
+// get the selectors
+const {
+  selectIds,
+  selectEntities,
+  selectAll,
+  selectTotal,
+} = adapter.getSelectors();
+
+// select the array of user ids
+export const selectUserIds = selectIds;
+
+// select the dictionary of user entities
+export const selectUserEntities = selectEntities;
+
+// select the array of users
+export const selectAllItems = selectAll;
+
+// select the total user count
+export const selectUserTotal = selectTotal;

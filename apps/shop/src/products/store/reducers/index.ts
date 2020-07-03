@@ -1,9 +1,10 @@
-import { PizzaState, pizzaReducer } from './pizzas.reducer';
 import {
   ActionReducerMap,
   createSelector,
   createFeatureSelector,
 } from '@ngrx/store';
+
+import { PizzaState, pizzaReducer, selectAllItems } from './pizzas.reducer';
 
 import { FEATURES } from 'apps/shop/config';
 
@@ -35,11 +36,4 @@ export const selectLoaded = createSelector(
   (state: PizzaState) => state.loaded
 );
 
-export const selectPizzaEntities = createSelector(
-  selectPizzaState,
-  (state: PizzaState) => state.entities
-);
-
-export const selectAllPizzas = createSelector(selectPizzaEntities, (entities) =>
-  Object.keys(entities).map((id) => entities[id])
-);
+export const selectAllPizzas = createSelector(selectPizzaState, selectAllItems);
