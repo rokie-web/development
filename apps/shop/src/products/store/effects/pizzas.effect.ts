@@ -12,14 +12,12 @@ export class PizzasEffects {
   loadPizzas$ = createEffect(() =>
     this.actions$.pipe(
       ofType(pizzaActions.LOAD_PIZZAS),
-      switchMap(() => {
-        return this.pizzaService.getPizzas().pipe(
-          map(
-            (pizzas) => pizzaActions.LOAD_PIZZAS_SUCCESS({ pizzas }),
-            catchError((error) => of(pizzaActions.LOAD_PIZZAS_FAIL({ error })))
-          )
-        );
-      })
+      switchMap(() =>
+        this.pizzaService.getPizzas().pipe(
+          map((pizzas) => pizzaActions.LOAD_PIZZAS_SUCCESS({ pizzas })),
+          catchError((error) => of(pizzaActions.LOAD_PIZZAS_FAIL({ error })))
+        )
+      )
     )
   );
 
