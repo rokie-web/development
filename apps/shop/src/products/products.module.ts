@@ -13,6 +13,9 @@ import * as fromComponents from './components';
 // containers
 import * as fromContainers from './containers';
 
+// guards
+import * as fromGuards from './guards';
+
 // services
 import * as fromServices from './services';
 
@@ -24,14 +27,17 @@ import { FEATURES } from 'apps/shop/config';
 export const ROUTES: Routes = [
   {
     path: '',
+    canActivate: [fromGuards.PizzasGuard],
     component: fromContainers.ProductsComponent,
   },
   {
-    path: ':id',
+    path: 'new',
+    canActivate: [fromGuards.PizzasGuard, fromGuards.ToppingsGuard],
     component: fromContainers.ProductItemComponent,
   },
   {
-    path: 'new',
+    path: ':pizzaId',
+    canActivate: [fromGuards.PizzaExistsGuard, fromGuards.ToppingsGuard],
     component: fromContainers.ProductItemComponent,
   },
 ];
@@ -45,7 +51,7 @@ export const ROUTES: Routes = [
     StoreModule.forFeature(FEATURES.PRODUCTS, REDUCERS),
     EffectsModule.forFeature(EFFECTS),
   ],
-  providers: [...fromServices.services],
+  providers: [...fromServices.services, ...fromGuards.guards],
   declarations: [...fromContainers.containers, ...fromComponents.components],
   exports: [...fromContainers.containers, ...fromComponents.components],
 })

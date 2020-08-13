@@ -1,4 +1,4 @@
-export const URL = 'https://my-json-server.typicode.com/rokie-web/dummy-db';
+export const URL = 'http://localhost:3000';
 export enum FEATURES {
   PRODUCTS = 'products',
 }
